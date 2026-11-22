@@ -80,4 +80,6 @@ function calculateRWT(posteriorWall,lvEndDiastolic){
  if(!finite(posteriorWall)||!finite(lvEndDiastolic)||posteriorWall<=0||lvEndDiastolic<=0)throw new Error("Las medidas deben ser números positivos.");
  return (2*posteriorWall)/lvEndDiastolic;
 }
-if(typeof module!=="undefined")module.exports={LIMITS,eligibility,predictorValues,validateData,riskFromModel,calculateDose,calculateRWT};
+const AVM_API={LIMITS,eligibility,predictorValues,validateData,riskFromModel,calculateDose,calculateRWT};
+if(typeof module!=="undefined" && module.exports) module.exports=AVM_API;
+if(typeof globalThis!=="undefined") globalThis.AVM=AVM_API;
